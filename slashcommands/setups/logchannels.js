@@ -14,8 +14,6 @@ module.exports.run = async (client, inter, channel) => {
 
  
     const timeoutChannel = inter.options.getChannel('timeout-logs');
-
-
     db.set(`timeoutlogs_${inter.guild.id}`, timeoutChannel.id)
 
     const succesEmbed = new Discord.MessageEmbed()
@@ -25,10 +23,6 @@ module.exports.run = async (client, inter, channel) => {
         .setTimestamp()
         .setFooter("Dark TOwn RP | ©️ 2022")
 
-        
-
-
-
     const timeoutlog = new Discord.MessageEmbed()
         .setTitle("Timeout logs")
         .setColor(`${client.ui.color}`)
@@ -37,7 +31,6 @@ module.exports.run = async (client, inter, channel) => {
 
     const timeout = inter.guild.channels.cache.find(x => x.id === db.get(`timeoutlogs_${inter.guild.id}`))
     timeout.send({ embeds: [timeoutlog] })
-
     inter.reply({ embeds: [succesEmbed], ephemeral: true }).catch(async () => {
         await inter.channel.send("Er is een fout opgetreden! Alle logkanalen zijn wel ingesteld!")
     });
