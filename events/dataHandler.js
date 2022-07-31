@@ -1,6 +1,8 @@
 async function createCmd(client) {
     const data = [
-        {},
+        {
+            
+        },
         {
             name: 'leden',
             description: 'Bekijk de aantal serverleden.',
