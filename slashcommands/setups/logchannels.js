@@ -27,20 +27,7 @@ module.exports.run = async (client, inter, channel) => {
         .setTimestamp()
         .setFooter("Dark TOwn RP | ©️ 2022")
 
-    const kicklog = new Discord.MessageEmbed()
-        .setTitle("Kick logs")
-        .setColor(`${client.ui.color}`)
-        .setDescription("In dit kanaal worden alle kicks verstuurd!\n\n**Let erop!** Zorg ervoor dat leden dit kanaal niet kunnen zien.")
-        .setFooter("Dark Town RP | ©️ 2022")
-
-    const kicks = inter.guild.channels.cache.find(x => x.id === db.get(`kicklogs_${inter.guild.id}`))
-    kicks.send({ embeds: [kicklog] })
-
-    const banlog = new Discord.MessageEmbed()
-        .setTitle("Ban logs")
-        .setColor(`${client.ui.color}`)
-        .setDescription("In dit kanaal worden alle verbanningen verstuurd!\n\n**Let erop!** Zorg ervoor dat leden dit kanaal niet kunnen zien.")
-        .setFooter("Dark Town RP | ©️ 2022")
+        
 
     const bans = inter.guild.channels.cache.find(x => x.id === db.get(`banlogs_${inter.guild.id}`))
     bans.send({ embeds: [banlog] })
