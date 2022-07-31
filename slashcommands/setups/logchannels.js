@@ -12,12 +12,10 @@ module.exports.run = async (client, inter, channel) => {
 
     if (!inter.member.permissions.has("ADMINISTRATOR")) return inter.reply({ embeds: [noPermissions], ephemeral: true })
 
-    const kickChannel = inter.options.getChannel('kick-logs');
-    const banChannel = inter.options.getChannel('ban-logs');
+ 
     const timeoutChannel = inter.options.getChannel('timeout-logs');
 
-    db.set(`kicklogs_${inter.guild.id}`, kickChannel.id)
-    db.set(`banlogs_${inter.guild.id}`, banChannel.id)
+
     db.set(`timeoutlogs_${inter.guild.id}`, timeoutChannel.id)
 
     const succesEmbed = new Discord.MessageEmbed()
@@ -29,8 +27,7 @@ module.exports.run = async (client, inter, channel) => {
 
         
 
-    const bans = inter.guild.channels.cache.find(x => x.id === db.get(`banlogs_${inter.guild.id}`))
-    bans.send({ embeds: [banlog] })
+
 
     const timeoutlog = new Discord.MessageEmbed()
         .setTitle("Timeout logs")
