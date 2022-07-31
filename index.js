@@ -59,4 +59,4 @@ client.on('ready', async () => {
 
 });
 
-client.login(Process.env.DTR);
+bot.login(Process.env.DTR);
