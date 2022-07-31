@@ -59,4 +59,4 @@ client.on('ready', async () => {
 
 });
 
-client.login(client.config.token)
+client.login(Process.env.token);
