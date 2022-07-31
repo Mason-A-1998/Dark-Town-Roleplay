@@ -12,8 +12,12 @@ module.exports.run = async (client, inter, channel) => {
 
     if (!inter.member.permissions.has("ADMINISTRATOR")) return inter.reply({ embeds: [noPermissions], ephemeral: true })
 
- 
+    const kickChannel = inter.options.getChannel('kick-logs');
+    const banChannel = inter.options.getChannel('ban-logs');
     const timeoutChannel = inter.options.getChannel('timeout-logs');
+
+    db.set(`kicklogs_${inter.guild.id}`, kickChannel.id)
+    db.set(`banlogs_${inter.guild.id}`, banChannel.id)
     db.set(`timeoutlogs_${inter.guild.id}`, timeoutChannel.id)
 
     const succesEmbed = new Discord.MessageEmbed()
@@ -23,6 +27,24 @@ module.exports.run = async (client, inter, channel) => {
         .setTimestamp()
         .setFooter("Dark TOwn RP | ©️ 2022")
 
+    const kicklog = new Discord.MessageEmbed()
+        .setTitle("Kick logs")
+        .setColor(`${client.ui.color}`)
+        .setDescription("In dit kanaal worden alle kicks verstuurd!\n\n**Let erop!** Zorg ervoor dat leden dit kanaal niet kunnen zien.")
+        .setFooter("Dark Town RP | ©️ 2022")
+
+    const kicks = inter.guild.channels.cache.find(x => x.id === db.get(`kicklogs_${inter.guild.id}`))
+    kicks.send({ embeds: [kicklog] })
+
+    const banlog = new Discord.MessageEmbed()
+        .setTitle("Ban logs")
+        .setColor(`${client.ui.color}`)
+        .setDescription("In dit kanaal worden alle verbanningen verstuurd!\n\n**Let erop!** Zorg ervoor dat leden dit kanaal niet kunnen zien.")
+        .setFooter("Dark Town RP | ©️ 2022")
+
+    const bans = inter.guild.channels.cache.find(x => x.id === db.get(`banlogs_${inter.guild.id}`))
+    bans.send({ embeds: [banlog] })
+
     const timeoutlog = new Discord.MessageEmbed()
         .setTitle("Timeout logs")
         .setColor(`${client.ui.color}`)
@@ -31,6 +53,7 @@ module.exports.run = async (client, inter, channel) => {
 
     const timeout = inter.guild.channels.cache.find(x => x.id === db.get(`timeoutlogs_${inter.guild.id}`))
     timeout.send({ embeds: [timeoutlog] })
+
     inter.reply({ embeds: [succesEmbed], ephemeral: true }).catch(async () => {
         await inter.channel.send("Er is een fout opgetreden! Alle logkanalen zijn wel ingesteld!")
     });

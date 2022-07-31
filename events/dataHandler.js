@@ -1,7 +1,40 @@
 async function createCmd(client) {
     const data = [
         {
-            
+            name: 'kick',
+            description: 'Kick een persoon van je discord.',
+            options: [
+                {
+                    name: 'persoon',
+                    description: 'Tag een persoon.',
+                    type: 'USER',
+                    required: true
+                },
+                {
+                    name: 'reden',
+                    description: 'Geef een reden op.',
+                    type: 'STRING',
+                    required: true
+                }
+            ]
+        },
+        {
+            name: 'ban',
+            description: 'Verban een persoon van je discord.',
+            options: [
+                {
+                    name: 'persoon',
+                    description: 'Tag een persoon.',
+                    type: 'USER',
+                    required: true
+                },
+                {
+                    name: 'reden',
+                    description: 'Geef een reden op.',
+                    type: 'STRING',
+                    required: true
+                }
+            ]
         },
         {
             name: 'leden',
@@ -138,7 +171,16 @@ async function createCmd(client) {
             description: 'Stel alle log kanalen in.',
             options: [
                 {
-
+                    name: 'kick-logs',
+                    description: 'Tag het kanaal dat u wilt gebruiken voor de kick-logs.',
+                    type: 'CHANNEL',
+                    required: true,
+                },
+                {
+                    name: 'ban-logs',
+                    description: 'Tag het kanaal dat u wilt gebruiken voor de ban-logs.',
+                    type: 'CHANNEL',
+                    required: true,
                 },
                 {
                     name: 'timeout-logs',
