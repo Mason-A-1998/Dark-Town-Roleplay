@@ -8,12 +8,12 @@ module.exports.run = async (client, inter) => {
 
     const noPermissions = new Discord.MessageEmbed()
         .setTitle(`Geen toegang!`)
-        .setDescription(`Je hebt niet de juiste permissies om dit command te kunnen gebuiken. Je hebt de permissie **KICK_MEMBERS** nodig om dit command te kunnen gebruiken.`)
+        .setDescription(`Je hebt niet de juiste permissies om dit command te kunnen gebuiken. Je hebt de permissie **MODERATE_MEMBERS** nodig om dit command te kunnen gebruiken.`)
         .setColor(client.ui.color)
         .setFooter({ text: `${client.ui.footer}` })
         .setTimestamp()
 
-    if (!inter.member.permissions.has("KICK_MEMBERS")) return inter.reply({ embeds: [noPermissions], ephemeral: true })
+    if (!inter.member.permissions.has("MODERATE_MEMBERS")) return inter.reply({ embeds: [noPermissions], ephemeral: true })
 
     if (db.get(`timeoutlogs_${inter.guild.id}`) === null) {
         return inter.reply("Het log systeem is nog niet ingesteld! Wil je deze instellen? doe dan \`/setup-logs\` ")
@@ -35,7 +35,7 @@ module.exports.run = async (client, inter) => {
         .setFooter({ text: `${client.ui.footer}` })
         .setTimestamp()
 
-    if (user.permissions.has("KICK_MEMBERS")) return inter.reply({ embeds: [perms], ephemeral: true })
+    if (user.permissions.has("MODERATE_MEMBERS")) return inter.reply({ embeds: [perms], ephemeral: true })
 
     member.timeout(timeInMs, reason);
 
