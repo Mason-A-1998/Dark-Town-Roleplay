@@ -135,18 +135,6 @@ async function createCmd(client) {
             description: 'Stel alle log kanalen in.',
             options: [
                 {
-                    name: 'kick-logs',
-                    description: 'Tag het kanaal dat u wilt gebruiken voor de kick-logs.',
-                    type: 'CHANNEL',
-                    notrequired: true
-                },
-                {
-                    name: 'ban-logs',
-                    description: 'Tag het kanaal dat u wilt gebruiken voor de ban-logs.',
-                    type: 'CHANNEL',
-                    notrequired: true,
-                },
-                {
                     name: 'timeout-logs',
                     description: 'Tag het kanaal dat u wilt gebruiken voor de timeout-logs.',
                     type: 'CHANNEL',
