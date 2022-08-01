@@ -1,42 +1,6 @@
 async function createCmd(client) {
     const data = [
         {
-            name: 'kick',
-            description: 'Kick een persoon van je discord.',
-            options: [
-                {
-                    name: 'persoon',
-                    description: 'Tag een persoon.',
-                    type: 'USER',
-                    required: true
-                },
-                {
-                    name: 'reden',
-                    description: 'Geef een reden op.',
-                    type: 'STRING',
-                    required: true
-                }
-            ]
-        },
-        {
-            name: 'ban',
-            description: 'Verban een persoon van je discord.',
-            options: [
-                {
-                    name: 'persoon',
-                    description: 'Tag een persoon.',
-                    type: 'USER',
-                    required: true
-                },
-                {
-                    name: 'reden',
-                    description: 'Geef een reden op.',
-                    type: 'STRING',
-                    required: true
-                }
-            ]
-        },
-        {
             name: 'leden',
             description: 'Bekijk de aantal serverleden.',
         },
