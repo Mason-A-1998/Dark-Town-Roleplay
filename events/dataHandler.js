@@ -138,7 +138,7 @@ async function createCmd(client) {
                     name: 'timeout-logs',
                     description: 'Tag het kanaal dat u wilt gebruiken voor de timeout-logs.',
                     type: 'CHANNEL',
-                    notrequired: true,
+                    required: true,
                 },
             ]
         },
