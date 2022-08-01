@@ -21,7 +21,7 @@ module.exports.run = async (client, inter, channel) => {
         .setColor("GREEN")
         .setDescription(`Het kanaal ${timeoutChannel} is succesvol ingesteld voor de timeout logs!`)
         .setTimestamp()
-        .setFooter("Dark TOwn RP | ©️ 2022")
+        .setFooter("Dark Town RP | ©️ 2022")
 
     const timeoutlog = new Discord.MessageEmbed()
         .setTitle("Timeout logs")
