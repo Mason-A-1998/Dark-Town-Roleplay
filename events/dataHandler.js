@@ -138,13 +138,13 @@ async function createCmd(client) {
                     name: 'kick-logs',
                     description: 'Tag het kanaal dat u wilt gebruiken voor de kick-logs.',
                     type: 'CHANNEL',
-                    required: false,
+                    required: true
                 },
                 {
                     name: 'ban-logs',
                     description: 'Tag het kanaal dat u wilt gebruiken voor de ban-logs.',
                     type: 'CHANNEL',
-                    required: false,
+                    required: true,
                 },
                 {
                     name: 'timeout-logs',
