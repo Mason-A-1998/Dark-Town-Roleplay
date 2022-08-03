@@ -19,7 +19,7 @@ module.exports.run = async (client, inter) => {
         return inter.reply("Het log systeem is nog niet ingesteld! Wil je deze instellen? doe dan \`/setup-logs\` ")
     }
 
-    let findMember = inter.guild.members.cache.get(kickuser.id)
+    let findMember = inter.guild.members.cache.get(user)
 
     const user = inter.options.getMentionable('persoon')
     const length = inter.options.getString('tijd')
@@ -77,7 +77,7 @@ module.exports.run = async (client, inter) => {
     channel.send({ embeds: [log] })
     inter.reply({ embeds: [timeout], ephemeral: true })
 
-    findMember.timeout({ reason: reason })
+    findMember.user({ reason: reason })
 
 }
 
