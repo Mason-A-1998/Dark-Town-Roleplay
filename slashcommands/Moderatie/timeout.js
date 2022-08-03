@@ -19,7 +19,7 @@ module.exports.run = async (client, inter) => {
         return inter.reply("Het log systeem is nog niet ingesteld! Wil je deze instellen? doe dan \`/setup-logs\` ")
     }
 
-    let findMember = inter.guild.members.cache.get(timeoutuser.id)
+    let findMember = inter.guild.members.cache.get(kickuser.id)
 
     const user = inter.options.getMentionable('persoon')
     const length = inter.options.getString('tijd')
