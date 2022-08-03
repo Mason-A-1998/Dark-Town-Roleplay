@@ -18,7 +18,7 @@ module.exports.run = async (client, inter, channel) => {
 
     const succesEmbed = new Discord.MessageEmbed()
         .setTitle("Succes")
-        .setColor("GREEN")
+        .setColor(`${client.ui.color}`)
         .setDescription(`Het kanaal ${timeoutChannel} is succesvol ingesteld voor de timeout logs!`)
         .setTimestamp()
         .setFooter("Dark Town RP | ©️ 2022")
