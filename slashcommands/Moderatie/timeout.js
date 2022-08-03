@@ -75,8 +75,6 @@ module.exports.run = async (client, inter) => {
     channel.send({ embeds: [log] })
     inter.reply({ embeds: [timeout], ephemeral: true })
 
-    findMember.user({ reason: reason })
-
 }
 
 
