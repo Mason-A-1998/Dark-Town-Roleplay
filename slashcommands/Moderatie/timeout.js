@@ -71,7 +71,6 @@ module.exports.run = async (client, inter) => {
     })
 
     const channel = inter.guild.channels.cache.find(x => x.id === db.get(`timeoutlogs_${inter.guild.id}`))
-    if (!channel) return inter.reply("Het log systeem is nog niet ingesteld! Wil je deze instellen? doe dan \`/setup-trainingen\`")
     channel.send({ embeds: [log] })
     inter.reply({ embeds: [timeout], ephemeral: true })
 
