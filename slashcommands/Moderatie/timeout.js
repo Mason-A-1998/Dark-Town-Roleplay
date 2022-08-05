@@ -15,7 +15,7 @@ module.exports.run = async (client, inter) => {
 
     if (!inter.member.permissions.has("MODERATE_MEMBERS")) return inter.reply({ embeds: [noPermissions], ephemeral: true })
 
-    
+
 
     const user = inter.options.getMentionable('persoon')
     const length = inter.options.getString('tijd')
@@ -37,7 +37,7 @@ module.exports.run = async (client, inter) => {
 
     member.timeout(timeInMs, reason);
 
-    const timeout = new Discord.MessageEmbed()
+    let timeout = new Discord.MessageEmbed()
         .setTitle(`Timeout!`)
         .setDescription(`\`${user.user.tag}\` Heeft een timeout gekregen.`)
         .setColor(client.ui.color)
