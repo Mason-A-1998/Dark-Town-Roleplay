@@ -21,16 +21,16 @@ module.exports.run = async (client, inter) => {
     const embed = new Discord.MessageEmbed()
         .setDescription(`Wil jij ook een review aanmaken gebruik: \`/review\`!`)
         .setAuthor(`| ${inter.user.username}`, inter.user.displayAvatarURL({ dynamic: true }))
-        .addFields(`Ingestuurd door:`, `${inter.user}`, true)
+        .addField(`Ingestuurd door:`, `${inter.user}`, true)
         .setColor("GOLD")
 
-    if (sterren === 1) { embed.addFields(`Sterren:`, '⭐', true) }
-    if (sterren === 2) { embed.addFields(`Sterren:`, '⭐⭐', true) }
-    if (sterren === 3) { embed.addFields(`Sterren:`, '⭐⭐⭐', true) }
-    if (sterren === 4) { embed.addFields(`Sterren:`, '⭐⭐⭐⭐', true) }
-    if (sterren === 5) { embed.addFields(`Sterren:`, '⭐⭐⭐⭐⭐', true) }
+    if (sterren === 1) { embed.addField(`Sterren:`, '⭐', true) }
+    if (sterren === 2) { embed.addField(`Sterren:`, '⭐⭐', true) }
+    if (sterren === 3) { embed.addField(`Sterren:`, '⭐⭐⭐', true) }
+    if (sterren === 4) { embed.addField(`Sterren:`, '⭐⭐⭐⭐', true) }
+    if (sterren === 5) { embed.addField(`Sterren:`, '⭐⭐⭐⭐⭐', true) }
 
-    embed.addFields(`Review:`, review)
+    embed.addField(`Review:`, review)
         .setFooter({ text: `${client.ui.footer}` })
     const channel = inter.guild.channels.cache.find(x => x.id === db.get(`review_${inter.guild.id}`))
     channel.send({ embeds: [embed] }).then(async (msg) => {

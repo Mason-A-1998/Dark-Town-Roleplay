@@ -8,9 +8,9 @@ module.exports.run = async (client, inter) => {
 
     let userinfo = new Discord.MessageEmbed()
     .setTitle(`Gebruikers informatie van ${user.username}`)
-    .addFields("Gebruikersnaam", `\`${user.tag}\``)
-    .addFields("Discord ID", "\`"+user.id+"\`")
-    .addFields("Account aangemaakt", "\`"+user.createdAt+"\`")
+    .addField("Gebruikersnaam", `\`${user.tag}\``)
+    .addField("Discord ID", "\`"+user.id+"\`")
+    .addField("Account aangemaakt", "\`"+user.createdAt+"\`")
     .setColor(`${client.ui.color}`)
     .setThumbnail(user.displayAvatarURL({dynamic: true}))  
 
