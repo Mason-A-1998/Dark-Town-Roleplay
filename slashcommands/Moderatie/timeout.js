@@ -16,7 +16,7 @@ module.exports.run = async (client, inter) => {
     if (!inter.member.permissions.has("MODERATE_MEMBERS")) return inter.reply({ embeds: [noPermissions], ephemeral: true })
 
     if (db.get(`timeoutlogs_${inter.guild.id}`) === null) {
-        return inter.reply("Het log systeem is nog niet ingesteld! Wil je deze instellen? doe dan \`/setup-logs\` ")
+        inter.reply("Het log systeem is nog niet ingesteld! Wil je deze instellen? doe dan \`/setup-logs\` ")
     }
     const user = inter.options.getMentionable('persoon')
     const length = inter.options.getString('tijd')
