@@ -10,7 +10,7 @@ module.exports.run = async (client, inter, channel) => {
         .setFooter({ text: `${client.ui.footer}` })
         .setTimestamp()
 
-    if (!inter.member.permissions.has("MANAGE SERVER")) return inter.reply({ embeds: [noPermissions], ephemeral: true })
+    if (!inter.member.permissions.has("MANAGESERVER")) return inter.reply({ embeds: [noPermissions], ephemeral: true })
 
     const timeoutChannel = inter.options.getChannel('timeout-logs');
 
