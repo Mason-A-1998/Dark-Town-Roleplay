@@ -16,14 +16,14 @@ module.exports.run = async (client, inter, channel) => {
 
     db.set(`timeoutlogs_${inter.guild.id}`, timeoutChannel.id)
 
-    const succesEmbed = new Discord.MessageEmbed()
+    let succesEmbed = new Discord.MessageEmbed()
         .setTitle("Succes")
         .setColor(`${client.ui.color}`)
         .setDescription(`Het kanaal ${timeoutChannel} is succesvol ingesteld voor de timeout logs!`)
         .setTimestamp()
         .setFooter("Dark Town RP | ©️ 2022")
 
-    const timeoutlog = new Discord.MessageEmbed()
+    let timeoutlog = new Discord.MessageEmbed()
         .setTitle("Timeout logs")
         .setColor(`${client.ui.color}`)
         .setDescription("In dit kanaal worden alle timeout logs verstuurd!\n\n**Let erop!** Zorg ervoor dat leden dit kanaal niet kunnen zien.")
