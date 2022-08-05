@@ -67,7 +67,7 @@ module.exports.run = async (client, inter) => {
         .setTimestamp()
 
     await user.send({ embeds: [dmlog] }).catch(async () => {
-        await inter.channel.send(`\`${Discord.User}\` Heeft zijn/haar privé berichten uitstaan, en heeft dus geen bericht ontvangen.`)
+        await inter.channel.send(`\`${inter.User}\` Heeft zijn/haar privé berichten uitstaan, en heeft dus geen bericht ontvangen.`)
     })
 
     const channel = inter.guild.channels.cache.find(x => x.id === db.get(`timeoutlogs_${inter.guild.id}`))
