@@ -39,7 +39,7 @@ module.exports.run = async (client, inter) => {
 
     member.timeout(timeInMs, reason);
 
-    let timeout = new Discord.MessageEmbed()
+    const timeout = new Discord.MessageEmbed()
         .setTitle(`Timeout!`)
         .setDescription(`\`${user.user.tag}\` Heeft een timeout gekregen.`)
         .setColor(client.ui.color)
