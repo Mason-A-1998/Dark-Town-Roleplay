@@ -49,7 +49,7 @@ client.on('messageCreate', async message => {
 //         var embedLevel = new MessageEmbed()
 //             .setColor(`${client.ui.color}`)
 //             .setDescription(`***Nieuw level***`)
-//             .addField("Nieuw level:", levelFile[idUser].level.toString())
+//             .addFields("Nieuw level:", levelFile[idUser].level.toString())
 
 //         message.channel.send({ embeds: [embedLevel] })
 
