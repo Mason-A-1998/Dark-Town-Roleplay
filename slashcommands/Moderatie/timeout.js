@@ -15,8 +15,8 @@ module.exports.run = async (client, inter) => {
 
     if (!inter.member.permissions.has("MODERATE_MEMBERS")) return inter.reply({ embeds: [noPermissions], ephemeral: true })
 
-    if (db.get(`timeoutlogs_${inter.guild.id}`) === null) {
-    return inter.reply("Het log systeem is nog niet ingesteld! Wil je deze instellen? doe dan \`/setup-logs\` ")
+    if (db.get(`timeout-logs_${inter.guild.id}`) === null) {
+        return inter.reply("Het log systeem is nog niet ingesteld! Wil je deze instellen? doe dan \`/setup-logs\` ")
     }
     
     const user = inter.options.getMentionable('persoon')
@@ -39,7 +39,7 @@ module.exports.run = async (client, inter) => {
 
     member.timeout(timeInMs, reason);
 
-    let timeout = new Discord.MessageEmbed()
+    const timeout = new Discord.MessageEmbed()
         .setTitle(`Timeout!`)
         .setDescription(`\`${user.user.tag}\` Heeft een timeout gekregen.`)
         .setColor(client.ui.color)
@@ -67,10 +67,10 @@ module.exports.run = async (client, inter) => {
         .setTimestamp()
 
     await user.send({ embeds: [dmlog] }).catch(async () => {
-        await inter.channel.send(`\`${inter.user}\` Heeft zijn/haar privé berichten uitstaan, en heeft dus geen bericht ontvangen.`)
+        await inter.channel.send(`\`${user.username}\` Heeft zijn/haar privé berichten uitstaan, en heeft dus geen bericht ontvangen.`)
     })
 
-    const channel = inter.guild.channels.cache.find(x => x.id === db.get(`timeoutlogs_${inter.guild.id}`))
+    const channel = inter.guild.channels.cache.find(x => x.id === db.get(`timeout-logs_${inter.guild.id}`))
     channel.send({ embeds: [log] })
     inter.reply({ embeds: [timeout], ephemeral: true })
 
