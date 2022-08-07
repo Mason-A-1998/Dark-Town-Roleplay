@@ -31,8 +31,7 @@ module.exports.run = async (client, inter, channel) => {
 
     const channell = inter.guild.channels.cache.find(x => x.id === db.get(`log_${inter.guild.id}`))
     channell.send({ embeds: [timeoutlog] })
-    inter.reply({ embeds: [succesEmbed], ephemeral: true }).catch(async () => {
-        await inter.channel.send("Er is een fout opgetreden! logkanaal is wel ingesteld! van time-out")
+    inter.reply({ embeds: [succesEmbed], ephemeral: true }).catch(async () => {await inter.channel.send("Er is een fout opgetreden! logkanaal is wel ingesteld! van time-out")
     });
 
 }
