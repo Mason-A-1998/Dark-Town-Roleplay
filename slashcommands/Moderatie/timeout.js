@@ -6,6 +6,10 @@ const { Permissions } = require('discord.js')
 
 module.exports.run = async (client, inter) => {
 
+    if (db.get(`log_${inter.guild.id}`) === null) {
+        return inter.reply("Het log systeem Time-Out is nog niet ingesteld! Wil je deze instellen? doe dan \`/setup-logs\` ")
+    }
+    
     const noPermissions = new Discord.MessageEmbed()
         .setTitle(`Geen toegang!`)
         .setDescription(`Je hebt niet de juiste permissies om dit command te kunnen gebuiken. Je hebt de permissie **MODERATE_MEMBERS** nodig om dit command te kunnen gebruiken.`)
@@ -66,7 +70,7 @@ module.exports.run = async (client, inter) => {
         await inter.channel.send(`\`${user.username}\` Heeft zijn/haar privé berichten uitstaan, en heeft dus geen bericht ontvangen.`)
     })
 
-    const channel = inter.guild.channels.cache.find(x => x.id === db.get(`timeout_${inter.guild.id}`))
+    const channel = inter.guild.channels.cache.find(x => x.id === db.get(`log_${inter.guild.id}`))
     channel.send({ embeds: [log] })
     inter.reply({ embeds: [timeout], ephemeral: true })
 
