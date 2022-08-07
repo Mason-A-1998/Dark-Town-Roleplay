@@ -18,6 +18,7 @@ module.exports.run = async (client, inter) => {
     if (db.get(`timeoutlogs_${inter.guild.id}`) === null) {
     return inter.reply("Het log systeem is nog niet ingesteld! Wil je deze instellen? doe dan \`/setup-logs\` ")
     }
+    
     const user = inter.options.getMentionable('persoon')
     const length = inter.options.getString('tijd')
     const reason = inter.options.getString('reden')
