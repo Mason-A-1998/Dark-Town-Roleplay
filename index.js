@@ -53,7 +53,7 @@ client.on('ready', async () => {
     let statuses = [`Burgers`, `Bot`]
     setInterval(function () {
         let status = statuses[Math.floor(Math.random() * statuses.length)];
-        client.user.setActivity(status, { type: "STREAMING" });
+        client.user.setActivity(status, { type: "WATCHING" });
     }, 10000)
     createCmd(client)
 
