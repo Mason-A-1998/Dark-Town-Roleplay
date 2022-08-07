@@ -1,5 +1,140 @@
+
 const { MessageEmbed } = require("discord.js");
-const db = require("quick.db")
+
+module.exports = {
+  name: "poll",
+  description: "Lance un sondage en commandes de slash.",
+  userPerms: ["MANNAGE_MESSAGE"],
+  options: [
+    {
+      type: "STRING",
+      name: "question",
+      description: "Indiquez la question de votre sondage.",
+      required: true,
+    },
+    {
+      type: "STRING",
+      name: "choix_1",
+      description: "Indiquez un choix",
+      required: false,
+    },
+    {
+      type: "STRING",
+      name: "choix_2",
+      description: "Indiquez un choix",
+      required: false,
+    },
+    {
+      type: "STRING",
+      name: "choix_3",
+      description: "Indiquez un choix",
+      required: false,
+    },
+    {
+      type: "STRING",
+      name: "choix_4",
+      description: "Indiquez un choix",
+      required: false,
+    },
+    {
+      type: "STRING",
+      name: "choix_5",
+      description: "Indiquez un choix",
+      required: false,
+    },
+    {
+      type: "STRING",
+      name: "choix_6",
+      description: "Indiquez un choix",
+      required: false,
+    },
+    {
+      type: "STRING",
+      name: "choix_7",
+      description: "Indiquez un choix",
+      required: false,
+    },
+    {
+      type: "STRING",
+      name: "choix_8",
+      description: "Indiquez un choix",
+      required: false,
+    },
+    {
+      type: "STRING",
+      name: "choix_9",
+      description: "Indiquez un choix",
+      required: false,
+    },
+    {
+      type: "STRING",
+      name: "choix_10",
+      description: "Indiquez un choix",
+      required: false,
+    },
+    {
+      type: "STRING",
+      name: "choix_11",
+      description: "Indiquez un choix",
+      required: false,
+    },
+    {
+      type: "STRING",
+      name: "choix_12",
+      description: "Indiquez un choix",
+      required: false,
+    },
+    {
+      type: "STRING",
+      name: "choix_13",
+      description: "Indiquez un choix",
+      required: false,
+    },
+    {
+      type: "STRING",
+      name: "choix_14",
+      description: "Indiquez un choix",
+      required: false,
+    },
+    {
+      type: "STRING",
+      name: "choix_15",
+      description: "Indiquez un choix",
+      required: false,
+    },
+    {
+      type: "STRING",
+      name: "choix_16",
+      description: "Indiquez un choix",
+      required: false,
+    },
+    {
+      type: "STRING",
+      name: "choix_17",
+      description: "Indiquez un choix",
+      required: false,
+    },
+    {
+      type: "STRING",
+      name: "choix_18",
+      description: "Indiquez un choix",
+      required: false,
+    },
+    {
+      type: "STRING",
+      name: "choix_19",
+      description: "Indiquez un choix",
+      required: false,
+    },
+    {
+      type: "STRING",
+      name: "choix_20",
+      description: "Indiquez un choix",
+      required: false,
+    },
+    //   ],
+    // },
+  ],
 
   run: async (client, interaction, message, args) => {
     const choice1 = interaction.options.getString("choix_1");
@@ -778,9 +913,9 @@ const db = require("quick.db")
         ephemeral: true,
       });
     }
-  }
+  },
 
   // 🇦 🇧 🇨 🇩 🇪 🇫 🇬 🇭 🇮 🇯 🇰 🇱 🇲 🇳 🇴 🇵 🇶 🇷 🇸 🇹
-
+};
 
 //}
