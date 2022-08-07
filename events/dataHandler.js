@@ -131,8 +131,6 @@ async function createCmd(client) {
                     description: "Een keuze aangeven",
                     required: false,
                   },
-                  //   ],
-                  // }
             ]
 
         },

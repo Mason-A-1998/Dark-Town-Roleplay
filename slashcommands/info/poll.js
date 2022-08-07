@@ -1,4 +1,5 @@
 const { MessageEmbed } = require("discord.js");
+const db = require("quick.db")
 
   run: async (client, interaction, message, args) => {
     const choice1 = interaction.options.getString("choix_1");
