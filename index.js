@@ -55,6 +55,7 @@ client.on('ready', async () => {
         let status = statuses[Math.floor(Math.random() * statuses.length)];
         client.user.setActivity(status, { type: "WATCHING" });
     }, 10000)
+    client.user.setPresence({ activities: [{ name: ``, type: `WACHTING` }], status: 'dnd' });
     createCmd(client)
 
 });
