@@ -9,7 +9,7 @@ async function createCmd(client) {
                     description: 'Beschrijf je poll',
                     type: 'STRING',
                     required: true
-                }
+                },
             ]
 
         },
