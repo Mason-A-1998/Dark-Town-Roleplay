@@ -15,7 +15,7 @@ module.exports.run = async (client, inter) => {
 
     if (!inter.member.permissions.has("MODERATE_MEMBERS")) return inter.reply({ embeds: [noPermissions], ephemeral: true })
 
-    if (db.get(`timeout-logs_${inter.guild.id}`) === null) {
+    if (db.get(`log_${inter.guild.id}`) === null){
         return inter.reply("Het log systeem is nog niet ingesteld! Wil je deze instellen? doe dan \`/setup-logs\` ")
     }
     
@@ -70,7 +70,7 @@ module.exports.run = async (client, inter) => {
         await inter.channel.send(`\`${user.username}\` Heeft zijn/haar privé berichten uitstaan, en heeft dus geen bericht ontvangen.`)
     })
 
-    const channel = inter.guild.channels.cache.find(x => x.id === db.get(`timeout-logs_${inter.guild.id}`))
+    const channel = inter.guild.channels.cache.find(x => x.id === db.get(`log_${inter.guild.id}`))
     channel.send({ embeds: [log] })
     inter.reply({ embeds: [timeout], ephemeral: true })
 
