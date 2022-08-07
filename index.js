@@ -50,7 +50,12 @@ client.on('ready', async () => {
     let guilds = client.guilds.cache.size;
     let users = client.users.cache.size
     console.log(`🔑 [STARTED] | ${client.user.username} loaded!`)
-    client.user.setPresence({ activities: [{ name: `Dark Town Roleplay`, type: `PLAYING` }], status: 'invisible' });
+    console.log(`🔑 [STARTED] | ${client.user.username} loaded!`)
+    let statuses = [`DTR Met Bots`, `Dark Town Roleplay`]
+    setInterval(function () {
+        let status = statuses[Math.floor(Math.random() * statuses.length)];
+        client.user.setActivity(status, { type: "PLAYING" });
+    }, 10000)
     createCmd(client)
 });
 
