@@ -1,8 +1,6 @@
 const Discord = require('discord.js');
 const db = require("quick.db")
 const ms = require("ms");
-const { Permissions } = require('discord.js')
-
 
 module.exports.run = async (client, inter) => {
 
