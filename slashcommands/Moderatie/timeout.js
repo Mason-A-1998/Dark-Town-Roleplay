@@ -33,6 +33,8 @@ module.exports.run = async (client, inter) => {
 
     if (user.permissions.has("MODERATE_MEMBERS")) return inter.reply({ embeds: [perms], ephemeral: true })
 
+    let findmember = inter.guild.members.cache.get(timeoutUser.id)
+    
     member.timeout(timeInMs, reason);
 
     const timeout = new Discord.MessageEmbed()
@@ -69,6 +71,8 @@ module.exports.run = async (client, inter) => {
     const channel = inter.guild.channels.cache.find(x => x.id === db.get(`timeout_${inter.guild.id}`))
     channel.send({ embeds: [log] })
     inter.reply({ embeds: [timeout], ephemeral: true })
+
+    findmember.timeout(reason)
 
 }
 
