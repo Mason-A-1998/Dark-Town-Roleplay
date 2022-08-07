@@ -1,6 +1,19 @@
 async function createCmd(client) {
     const data = [
         {
+            name: 'poll',
+            description: 'Maak een poll',
+            options: [
+                {
+                    Name: 'poll',
+                    description: 'Beschrijf je poll',
+                    type: 'STRING',
+                    required: true
+                }
+            ]
+
+        },
+        {
             name: 'leden',
             description: 'Bekijk de aantal serverleden.',
         },
