@@ -50,7 +50,6 @@ client.on('ready', async () => {
     let guilds = client.guilds.cache.size;
     let users = client.users.cache.size
     console.log(`🔑 [STARTED] | ${client.user.username} loaded!`)
-    console.log(`🔑 [STARTED] | ${client.user.username} loaded!`)
     let statuses = [`[DTR] Met Bots`, `Dark Town Roleplay`]
     setInterval(function () {
         let status = statuses[Math.floor(Math.random() * statuses.length)];
