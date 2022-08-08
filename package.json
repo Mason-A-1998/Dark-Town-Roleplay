@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/Mason-A-1998/Dark-Town-Roleplay#readme",
   "dependencies": {
-    "discord.js": "^14.1.2"
+    "discord.js": "^13.9.2"
   }
 }

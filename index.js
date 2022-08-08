@@ -1,7 +1,7 @@
-const { Client, intents, DiscordAPIError, MessageEmbed } = require('discord.js');
+const { Client, Intents, DiscordAPIError, MessageEmbed } = require('discord.js');
 const Discord = require('discord.js');
 const discord = require('discord.js');
-const client = new Discord.Client({ 
+const client = new Intents .Client({ 
     intents: [
        Discord.GatewayIntentBits.GuildInvites, 
        Discord.GatewayIntentBits.Guilds, 
