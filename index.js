@@ -17,12 +17,12 @@ const client = new Intents .Client({
 const fs = require('fs');
 const yaml = require('js-yaml')
 const { Permissions } = require('discord.js')
-function load(file) { return myFile = yaml.load(fs.readFileSync($[File], 'utf8')) }
+function loadFile(file) { return myFile = yaml.load(fs.readFileSync(`${file}`, 'utf8')) }
 
 
 
-client.config = load(`./configs/config.yml`)
-client.ui = load(`./configs/ui.yml`)
+client.config = loadFile(`./configs/config.yml`)
+client.ui = loadFile(`./configs/ui.yml`)
 
 client.connection = false;
 client.functions = new Discord.Collection();
