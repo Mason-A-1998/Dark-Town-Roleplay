@@ -14,14 +14,15 @@ const client = new Discord.Client({
        allowedMentions: { parse: ['users', 'roles'] }
     
 });
-    
 const fs = require('fs');
+const yaml = require('js-yaml')
 const { Permissions } = require('discord.js')
+function load(file) { return myFile = yaml.load(fs.readFileSync($[File], 'utf8')) }
 
 
 
-client.config = loadFile(`./configs/config.yml`)
-client.ui = loadFile(`./configs/ui.yml`)
+client.config = load(`./configs/config.yml`)
+client.ui = load(`./configs/ui.yml`)
 
 client.connection = false;
 client.functions = new Discord.Collection();
