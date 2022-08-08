@@ -18,7 +18,7 @@ const client = new Discord.Client({
 const fs = require('fs');
 const { Permissions } = require('discord.js')
 
-function loadFile(file) { return myFile = yaml.load(fs.readFileSync(`${file}`, 'utf8')) }
+
 
 client.config = loadFile(`./configs/config.yml`)
 client.ui = loadFile(`./configs/ui.yml`)
