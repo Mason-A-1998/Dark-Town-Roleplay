@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const discord = require('discord.js');
 const client = new Client({ intents: [Intents.FLAGS.GUILD_INVITES, Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.GUILD_VOICE_STATES, Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS], allowedMentions: { parse: ['users', 'roles'] } });
 const fs = require('fs');
-const yaml = require('js-yaml')
+const yaml = require('yaml')
 const { Permissions } = require('discord.js')
 
 function loadFile(file) { return myFile = yaml.load(fs.readFileSync(`${file}`, 'utf8')) }
