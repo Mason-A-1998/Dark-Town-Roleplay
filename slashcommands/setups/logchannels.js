@@ -45,15 +45,6 @@ module.exports.run = async (client, inter, channel) => {
     const bans = inter.guild.channels.cache.find(x => x.id === db.get(`banlogs_${inter.guild.id}`))
     bans.send({ embeds: [banlog] })
 
-    const clearlog = new Discord.MessageEmbed()
-        .setTitle("Clear logs")
-        .setColor(`${client.ui.color}`)
-        .setDescription("In dit kanaal worden alle clear logs verstuurd!\n\n**Let erop!** Zorg ervoor dat leden dit kanaal niet kunnen zien.")
-        .setFooter("RG Moderation | ©️ 2022")
-
-    const clear = inter.guild.channels.cache.find(x => x.id === db.get(`clearlogs_${inter.guild.id}`))
-    clear.send({ embeds: [clearlog] })
-
     const timeoutlog = new Discord.MessageEmbed()
         .setTitle("Timeout logs")
         .setColor(`${client.ui.color}`)
