@@ -60,7 +60,7 @@ client.on('ready', async () => {
     }, 5000)
     createCmd(client);
 
-    await mongoose.connect(
+    await mongoose.createConnection(
         process.env.MONGO_URI,
         {
             keepAlive: true
