@@ -5,7 +5,7 @@ module.exports.run = async (client, inter, channel) => {
 
     const noPermissions = new Discord.MessageEmbed()
         .setTitle(`Geen toegang!`)
-        .setDescription(`Je hebt niet de juiste permissies om dit command te kunnen gebuiken. Je hebt de permissie **MANAGE_WEBHOOKS** nodig om dit command te kunnen gebruiken.`)
+        .setDescription(`Je hebt niet de juiste permissies om dit command te kunnen gebuiken. Je hebt de permissie **ADMINISTRATOR** nodig om dit command te kunnen gebruiken.`)
         .setColor(client.ui.color)
         .setFooter({ text: `${client.ui.footer}` })
         .setTimestamp()
@@ -23,15 +23,24 @@ module.exports.run = async (client, inter, channel) => {
     const succesEmbed = new Discord.MessageEmbed()
         .setTitle("Succes")
         .setColor("GREEN")
-        .setDescription(`Het kanaal ${kickChannel} is succesvol ingesteld voor de kick logs!\nHet kanaal ${banChannel} is succesvol ingesteld voor de ban logs!\nHet kanaal ${timeoutChannel} is succesvol ingesteld voor de timeout logs!`)
+        .setDescription(`Het kanaal ${warnChannel} is succesvol ingesteld voor de warn logs!\nHet kanaal ${kickChannel} is succesvol ingesteld voor de kick logs!\nHet kanaal ${banChannel} is succesvol ingesteld voor de ban logs!\nHet kanaal ${clearChannel} is succesvol ingesteld voor de clear logs!\nHet kanaal ${timeoutChannel} is succesvol ingesteld voor de timeout logs!`)
         .setTimestamp()
-        .setFooter("Dark Town RP | ©️ 2022")
+        .setFooter("RG Moderation | ©️ 2022")
+
+    const warnlog = new Discord.MessageEmbed()
+        .setTitle("Warn logs")
+        .setColor(`${client.ui.color}`)
+        .setDescription("In dit kanaal worden alle waarschuwingen verstuurd!\n\n**Let erop!** Zorg ervoor dat leden dit kanaal niet kunnen zien.")
+        .setFooter("RG Moderation | ©️ 2022")
+
+    const warns = inter.guild.channels.cache.find(x => x.id === db.get(`warnlogs_${inter.guild.id}`))
+    warns.send({ embeds: [warnlog] })
 
     const kicklog = new Discord.MessageEmbed()
         .setTitle("Kick logs")
         .setColor(`${client.ui.color}`)
         .setDescription("In dit kanaal worden alle kicks verstuurd!\n\n**Let erop!** Zorg ervoor dat leden dit kanaal niet kunnen zien.")
-        .setFooter("Dark Town RP | ©️ 2022")
+        .setFooter("RG Moderation | ©️ 2022")
 
     const kicks = inter.guild.channels.cache.find(x => x.id === db.get(`kicklogs_${inter.guild.id}`))
     kicks.send({ embeds: [kicklog] })
@@ -40,20 +49,32 @@ module.exports.run = async (client, inter, channel) => {
         .setTitle("Ban logs")
         .setColor(`${client.ui.color}`)
         .setDescription("In dit kanaal worden alle verbanningen verstuurd!\n\n**Let erop!** Zorg ervoor dat leden dit kanaal niet kunnen zien.")
-        .setFooter("Dark Town RP | ©️ 2022")
+        .setFooter("RG Moderation | ©️ 2022")
 
     const bans = inter.guild.channels.cache.find(x => x.id === db.get(`banlogs_${inter.guild.id}`))
     bans.send({ embeds: [banlog] })
+
+    const clearlog = new Discord.MessageEmbed()
+        .setTitle("Clear logs")
+        .setColor(`${client.ui.color}`)
+        .setDescription("In dit kanaal worden alle clear logs verstuurd!\n\n**Let erop!** Zorg ervoor dat leden dit kanaal niet kunnen zien.")
+        .setFooter("RG Moderation | ©️ 2022")
+
+    const clear = inter.guild.channels.cache.find(x => x.id === db.get(`clearlogs_${inter.guild.id}`))
+    clear.send({ embeds: [clearlog] })
 
     const timeoutlog = new Discord.MessageEmbed()
         .setTitle("Timeout logs")
         .setColor(`${client.ui.color}`)
         .setDescription("In dit kanaal worden alle timeout logs verstuurd!\n\n**Let erop!** Zorg ervoor dat leden dit kanaal niet kunnen zien.")
-        .setFooter("Dark Town RP | ©️ 2022")
+        .setFooter("RG Moderation | ©️ 2022")
 
     const timeout = inter.guild.channels.cache.find(x => x.id === db.get(`timeoutlogs_${inter.guild.id}`))
     timeout.send({ embeds: [timeoutlog] })
-    inter.reply({ embeds: [succesEmbed], ephemeral: true }); 
+
+    inter.reply({ embeds: [succesEmbed], ephemeral: true }).catch(async () => {
+        await inter.channel.send("Er is een fout opgetreden! Alle logkanalen zijn wel ingesteld!")
+    });
 
 }
 
