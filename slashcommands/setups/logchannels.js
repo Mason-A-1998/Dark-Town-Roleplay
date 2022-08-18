@@ -25,13 +25,13 @@ module.exports.run = async (client, inter, channel) => {
         .setColor("GREEN")
         .setDescription(`Het kanaal ${kickChannel} is succesvol ingesteld voor de kick logs!\nHet kanaal ${banChannel} is succesvol ingesteld voor de ban logs!\nHet kanaal ${timeoutChannel} is succesvol ingesteld voor de timeout logs!`)
         .setTimestamp()
-        .setFooter("RG Moderation | ©️ 2022")
+        .setFooter("Dark Town RP | ©️ 2022")
 
         const kicklog = new Discord.MessageEmbed()
         .setTitle("Kick logs")
         .setColor(`${client.ui.color}`)
         .setDescription("In dit kanaal worden alle kicks verstuurd!\n\n**Let erop!** Zorg ervoor dat leden dit kanaal niet kunnen zien.")
-        .setFooter("RG Moderation | ©️ 2022")
+        .setFooter("Dark Town RP | ©️ 2022")
 
     const kicks = inter.guild.channels.cache.find(x => x.id === db.get(`kicklogs_${inter.guild.id}`))
     kicks.send({ embeds: [kicklog] })
@@ -40,7 +40,7 @@ module.exports.run = async (client, inter, channel) => {
         .setTitle("Ban logs")
         .setColor(`${client.ui.color}`)
         .setDescription("In dit kanaal worden alle verbanningen verstuurd!\n\n**Let erop!** Zorg ervoor dat leden dit kanaal niet kunnen zien.")
-        .setFooter("RG Moderation | ©️ 2022")
+        .setFooter("Dark Town RP | ©️ 2022")
 
     const bans = inter.guild.channels.cache.find(x => x.id === db.get(`banlogs_${inter.guild.id}`))
     bans.send({ embeds: [banlog] })
@@ -49,7 +49,7 @@ module.exports.run = async (client, inter, channel) => {
         .setTitle("Timeout logs")
         .setColor(`${client.ui.color}`)
         .setDescription("In dit kanaal worden alle timeout logs verstuurd!\n\n**Let erop!** Zorg ervoor dat leden dit kanaal niet kunnen zien.")
-        .setFooter("RG Moderation | ©️ 2022")
+        .setFooter("Dark Town RP | ©️ 2022")
 
     const timeout = inter.guild.channels.cache.find(x => x.id === db.get(`timeoutlogs_${inter.guild.id}`))
     timeout.send({ embeds: [timeoutlog] })
