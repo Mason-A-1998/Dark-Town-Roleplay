@@ -12,13 +12,13 @@ module.exports.run = async (client, inter, channel) => {
 
     if (!inter.member.permissions.has("MANAGE_WEBHOOKS")) return inter.reply({ embeds: [noPermissions], ephemeral: true })
 
-    const kickChannel = inter.options.getChannel('kick-logs');
-    const banChannel = inter.options.getChannel('ban-logs');
-    const timeoutChannel = inter.options.getChannel('timeout-logs');
+    const kickChannel = inter.options.getChannel('kicklogs');
+    const banChannel = inter.options.getChannel('banlogs');
+    const timeoutChannel = inter.options.getChannel('timeoutlogs');
 
-    db.set(`kicklogs_${inter.guild.id}`, kickChannel.id)
-    db.set(`banlogs_${inter.guild.id}`, banChannel.id)
-    db.set(`timeoutlogs_${inter.guild.id}`, timeoutChannel.id)
+    db.set(`kick-logs_${inter.guild.id}`, kickChannel.id)
+    db.set(`ban-logs_${inter.guild.id}`, banChannel.id)
+    db.set(`timeout-logs_${inter.guild.id}`, timeoutChannel.id)
 
     const succesEmbed = new Discord.MessageEmbed()
         .setTitle("Succes")
