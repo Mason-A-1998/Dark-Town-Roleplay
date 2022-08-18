@@ -25,7 +25,7 @@ module.exports.run = async (client, inter, channel) => {
         .setColor("GREEN")
         .setDescription(`Het kanaal ${kickChannel} is succesvol ingesteld voor de kick logs!\nHet kanaal ${banChannel} is succesvol ingesteld voor de ban logs!\nHet kanaal ${timeoutChannel} is succesvol ingesteld voor de timeout logs!`)
         .setTimestamp()
-        .setFooter("Dark TOwn RP | ©️ 2022")
+        .setFooter("Dark Town RP | ©️ 2022")
 
     const kicklog = new Discord.MessageEmbed()
         .setTitle("Kick logs")
@@ -53,10 +53,7 @@ module.exports.run = async (client, inter, channel) => {
 
     const timeout = inter.guild.channels.cache.find(x => x.id === db.get(`timeoutlogs_${inter.guild.id}`))
     timeout.send({ embeds: [timeoutlog] })
-
-    inter.reply({ embeds: [succesEmbed], ephemeral: true }).catch(async () => {
-        await inter.channel.send("Er is een fout opgetreden! Alle logkanalen zijn wel ingesteld!")
-    });
+    inter.reply({ embeds: [succesEmbed], ephemeral: true });
 
 }
 
