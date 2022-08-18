@@ -27,16 +27,7 @@ module.exports.run = async (client, inter, channel) => {
         .setTimestamp()
         .setFooter("RG Moderation | ©️ 2022")
 
-    const warnlog = new Discord.MessageEmbed()
-        .setTitle("Warn logs")
-        .setColor(`${client.ui.color}`)
-        .setDescription("In dit kanaal worden alle waarschuwingen verstuurd!\n\n**Let erop!** Zorg ervoor dat leden dit kanaal niet kunnen zien.")
-        .setFooter("RG Moderation | ©️ 2022")
-
-    const warns = inter.guild.channels.cache.find(x => x.id === db.get(`warnlogs_${inter.guild.id}`))
-    warns.send({ embeds: [warnlog] })
-
-    const kicklog = new Discord.MessageEmbed()
+        const kicklog = new Discord.MessageEmbed()
         .setTitle("Kick logs")
         .setColor(`${client.ui.color}`)
         .setDescription("In dit kanaal worden alle kicks verstuurd!\n\n**Let erop!** Zorg ervoor dat leden dit kanaal niet kunnen zien.")
