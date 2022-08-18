@@ -23,7 +23,7 @@ module.exports.run = async (client, inter, channel) => {
     const succesEmbed = new Discord.MessageEmbed()
         .setTitle("Succes")
         .setColor("GREEN")
-        .setDescription(`Het kanaal ${warnChannel} is succesvol ingesteld voor de warn logs!\nHet kanaal ${kickChannel} is succesvol ingesteld voor de kick logs!\nHet kanaal ${banChannel} is succesvol ingesteld voor de ban logs!\nHet kanaal ${clearChannel} is succesvol ingesteld voor de clear logs!\nHet kanaal ${timeoutChannel} is succesvol ingesteld voor de timeout logs!`)
+        .setDescription(`Het kanaal ${kickChannel} is succesvol ingesteld voor de kick logs!\nHet kanaal ${banChannel} is succesvol ingesteld voor de ban logs!\nHet kanaal ${timeoutChannel} is succesvol ingesteld voor de timeout logs!`)
         .setTimestamp()
         .setFooter("RG Moderation | ©️ 2022")
 
