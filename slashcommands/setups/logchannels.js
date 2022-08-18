@@ -33,7 +33,7 @@ module.exports.run = async (client, inter, channel) => {
         .setDescription("In dit kanaal worden alle kicks verstuurd!\n\n**Let erop!** Zorg ervoor dat leden dit kanaal niet kunnen zien.")
         .setFooter("Dark Town RP | ©️ 2022")
 
-    const kicks = inter.guild.channels.cache.find(x => x.id === db.get(`kicklogs_${inter.guild.id}`))
+    const kicks = inter.guild.channels.cache.find(x => x.id === db.get(`kick-logs_${inter.guild.id}`))
     kicks.send({ embeds: [kicklog] })
 
     const banlog = new Discord.MessageEmbed()
@@ -42,7 +42,7 @@ module.exports.run = async (client, inter, channel) => {
         .setDescription("In dit kanaal worden alle verbanningen verstuurd!\n\n**Let erop!** Zorg ervoor dat leden dit kanaal niet kunnen zien.")
         .setFooter("Dark Town RP | ©️ 2022")
 
-    const bans = inter.guild.channels.cache.find(x => x.id === db.get(`banlogs_${inter.guild.id}`))
+    const bans = inter.guild.channels.cache.find(x => x.id === db.get(`ban-logs_${inter.guild.id}`))
     bans.send({ embeds: [banlog] })
 
     const timeoutlog = new Discord.MessageEmbed()
@@ -51,7 +51,7 @@ module.exports.run = async (client, inter, channel) => {
         .setDescription("In dit kanaal worden alle timeout logs verstuurd!\n\n**Let erop!** Zorg ervoor dat leden dit kanaal niet kunnen zien.")
         .setFooter("Dark Town RP | ©️ 2022")
 
-    const timeout = inter.guild.channels.cache.find(x => x.id === db.get(`timeoutlogs_${inter.guild.id}`))
+    const timeout = inter.guild.channels.cache.find(x => x.id === db.get(`timeout-logs_${inter.guild.id}`))
     timeout.send({ embeds: [timeoutlog] })
 
     inter.reply({ embeds: [succesEmbed], ephemeral: true }).catch(async () => {
