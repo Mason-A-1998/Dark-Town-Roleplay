@@ -5,12 +5,12 @@ module.exports.run = async (client, inter, channel) => {
 
     const noPermissions = new Discord.MessageEmbed()
         .setTitle(`Geen toegang!`)
-        .setDescription(`Je hebt niet de juiste permissies om dit command te kunnen gebuiken. Je hebt de permissie **MANAGE_WEBHOOKS** nodig om dit command te kunnen gebruiken.`)
+        .setDescription(`Je hebt niet de juiste permissies om dit command te kunnen gebuiken. Je hebt de permissie **ADMINISTRATOR** nodig om dit command te kunnen gebruiken.`)
         .setColor(client.ui.color)
         .setFooter({ text: `${client.ui.footer}` })
         .setTimestamp()
 
-    if (!inter.member.permissions.has("MANAGE_WEBHOOKS")) return inter.reply({ embeds: [noPermissions], ephemeral: true })
+    if (!inter.member.permissions.has("ADMINISTRATOR")) return inter.reply({ embeds: [noPermissions], ephemeral: true })
 
     const suggestieChannel = inter.options.getChannel('kanaal');
 
