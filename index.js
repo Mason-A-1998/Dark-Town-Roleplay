@@ -66,7 +66,7 @@ client.on('ready', async () => {
        {
             keepAlive: true
        }
-    )
+    );
 
 });
 
