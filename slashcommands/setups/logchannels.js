@@ -53,7 +53,7 @@ module.exports.run = async (client, inter, channel) => {
 
     const timeout = inter.guild.channels.cache.find(x => x.id === db.get(`timeoutlogs_${inter.guild.id}`))
     timeout.send({ embeds: [timeoutlog] })
-    inter.reply({ embeds: [succesEmbed], ephemeral: true });
+    inter.reply({ embeds: [succesEmbed], ephemeral: true }); 
 
 }
 
