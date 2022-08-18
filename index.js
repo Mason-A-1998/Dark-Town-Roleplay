@@ -5,8 +5,7 @@ const client = new Client({ intents: [Intents.FLAGS.GUILD_INVITES, Intents.FLAGS
 const fs = require('fs');
 const yaml = require('js-yaml');
 const { Permissions } = require('discord.js');  
-const mongoose = require('mongoose');
-require('dotenv').config();
+
 
 function loadFile(file) { return myFile = yaml.load(fs.readFileSync(`${file}`, 'utf8')) }
 
@@ -59,13 +58,6 @@ client.on('ready', async () => {
         client.user.setActivity(status, { type: "PLAYING" });
     }, 5000)
     createCmd(client);
-
-    await mongoose.createConnection(
-        process.env.MONGO_URI,
-        {
-            keepAlive: true
-        }
-    );
 
 });
 
